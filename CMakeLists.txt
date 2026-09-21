@@ -3,7 +3,7 @@
 # -- copyright GPLv3
 
 # esp_ringbuf needed starting idf v6.0.0
-set(A2DP_REQUIRES bt esp_common freertos hal log nvs_flash driver esp_ringbuf arduino-audio-tools)
+set(A2DP_REQUIRES bt esp_common freertos hal log nvs_flash driver esp_ringbuf)
 
 # codec-helix (AAC decode) + codec-sbc (SBC decode, kept alongside
 # AAC since registering any managed decoder via add_decoder() replaces the
@@ -32,4 +32,4 @@ idf_component_register(
     REQUIRES ${A2DP_REQUIRES}
 )
 
-target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=1)
+target_compile_options(${COMPONENT_LIB} PUBLIC -DA2DP_LEGACY_I2S_SUPPORT=0 -DA2DP_I2S_AUDIOTOOLS=0)
